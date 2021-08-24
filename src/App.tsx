@@ -1,26 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Button, Pane, Text, majorScale } from 'evergreen-ui'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Pane display="flex" alignItems="center" marginX={majorScale(2)}>
+      <Button>Learn React</Button>
+      <Text>This is a clickable Button</Text>
+    </Pane>
+  )
 }
 
-export default App;
+export default App
