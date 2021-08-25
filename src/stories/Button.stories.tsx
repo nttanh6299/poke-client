@@ -1,37 +1,26 @@
-import React from 'react'
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
-import { Button } from './Button'
+import Button from 'features/Main/components/Navbar/components/Button'
 
 export default {
-  title: 'Example/Button',
+  title: 'Navbar/Button',
   component: Button,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
 } as ComponentMeta<typeof Button>
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Button> = (args) => (
+  <div style={{ width: '120px' }}>
+    <Button {...args} />
+  </div>
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  primary: true,
+export const Regular = Template.bind({})
+Regular.args = {
+  color: 'red',
   label: 'Button',
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Button',
-}
-
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large',
-  label: 'Button',
-}
-
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small',
+export const Active = Template.bind({})
+Active.args = {
+  color: 'red',
+  isActive: true,
   label: 'Button',
 }
