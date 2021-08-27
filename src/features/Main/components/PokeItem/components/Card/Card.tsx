@@ -8,6 +8,7 @@ import Typography from 'components/Typography'
 import formatName from 'utils/formatName'
 import { pokeTypes } from 'constants/global'
 import convertHgToPound from 'utils/convertHgToPound'
+import Dot from 'components/Dot'
 
 const Wrapper = styled.div`
   ${({ theme }) => css`
@@ -90,19 +91,28 @@ const Card: React.FC<ICardProps> = ({
               </PokeImageWrapper>
             </Box>
             <Box>
-              <Typography variant="h3" fontWeight={600} fontSize={1.6}>
+              <Typography
+                variant="h3"
+                fontWeight={600}
+                fontSize={1.6}
+                color="#615E58"
+              >
                 {formatName(name)}
               </Typography>
             </Box>
             <Box marginTop={0.25} marginBottom={0.8}>
-              <Typography>
-                <span>W: {convertHgToPound(weight)}lbs</span>
-                <span>&nbsp;&bull;&nbsp;</span>
-                <span>H: {height / 10}m</span>
-              </Typography>
+              <Flex alignItems="center">
+                <Typography color="#87847E" fontSize={0.9}>
+                  W: {convertHgToPound(weight)}lbs
+                </Typography>
+                <Dot size={6} color="#ccc" gutter={6} circle />
+                <Typography color="#87847E" fontSize={0.9}>
+                  H: {height / 10}m
+                </Typography>
+              </Flex>
             </Box>
             <Box marginBottom={0.8}>
-              <Flex>
+              <Flex alignItems="center">
                 {types.map((type, index) => {
                   const variant = pokeTypes.find(({ name }) => name === type)
                   if (!variant) return null
@@ -117,9 +127,7 @@ const Card: React.FC<ICardProps> = ({
                         {formatName(type)}
                       </Typography>
                       <Show when={index !== types.length - 1}>
-                        <Typography variant="span">
-                          &nbsp;&bull;&nbsp;
-                        </Typography>
+                        <Dot size={6} color="#ccc" gutter={6} circle />
                       </Show>
                     </Fragment>
                   )
@@ -127,14 +135,14 @@ const Card: React.FC<ICardProps> = ({
               </Flex>
             </Box>
             <Box marginBottom={0.5}>
-              <Flex>
+              <Flex alignItems="center">
                 {abilities.map((abi, index) => (
                   <Fragment key={index}>
-                    <Typography fontSize={1.1} fontWeight={500}>
+                    <Typography fontSize={1.1} fontWeight={500} color="#615E58">
                       {formatName(abi)}
                     </Typography>
                     <Show when={index !== abilities.length - 1}>
-                      <Typography variant="span">&nbsp;&bull;&nbsp;</Typography>
+                      <Dot size={6} color="#ccc" gutter={6} circle />
                     </Show>
                   </Fragment>
                 ))}
