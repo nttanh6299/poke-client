@@ -1,29 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
 import Flex from 'components/Flex'
-import Box from 'components/Box'
 import getBarColor from 'utils/getBarColor'
 
 const MAX_PROGRESS_VALUE = 140
 
 const Wrapper = styled.div`
   & + & {
-    margin-top: 12px;
+    margin-top: 16px;
   }
 `
 
 const Label = styled.span`
+  flex: 0 0 140px;
   font-weight: 600;
   font-size: 1.15rem;
   color: #bbb;
+  text-align: right;
 `
 
 const Value = styled.span`
+  flex: 0 0 80px;
+  display: inline-block;
   font-size: 1.15rem;
   font-weight: 400;
-  margin-left: 10px;
-  margin-right: 10px;
   color: #555;
+  text-align: center;
 `
 
 const Progress = styled.div`
@@ -60,9 +62,7 @@ const Stat: React.FC<IStatProps> = ({ label, value }) => {
     <Wrapper>
       <Flex alignItems="center">
         <Label>{label}</Label>
-        <Box marginLeft={1} marginRight={1}>
-          <Value>{value}</Value>
-        </Box>
+        <Value>{value}</Value>
         <Flex flexItem>
           <Progress>
             <Bar style={style} />

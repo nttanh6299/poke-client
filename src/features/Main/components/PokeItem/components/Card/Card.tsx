@@ -34,12 +34,14 @@ const Content = styled.div`
 
 const PokeImageWrapper = styled.div`
   background-color: transparent;
+  width: 180px;
+  height: 180px;
 `
 
 const PokeImage = styled.img`
   display: inline-block;
-  max-width: 180px;
-  max-height: 180px;
+  width: 100%;
+  height: auto;
   -webkit-filter: drop-shadow(0px 2px 4px #888);
   filter: drop-shadow(0px 2px 4px #888);
 `
