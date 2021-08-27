@@ -5,13 +5,15 @@ interface IFlexProps {
   justifyContent?: 'flex-start' | 'center' | 'flex-end' | 'space-between'
   alignItems?: 'flex-start' | 'center' | 'flex-end'
   flexItem?: boolean
+  flex?: string
+  style?: React.CSSProperties
 }
 
 const Flex = styled.div<IFlexProps>`
   ${(props) =>
     props.flexItem
       ? css`
-          flex: 1;
+          flex: ${props.flex ? props.flex : '1'};
         `
       : css`
           display: flex;

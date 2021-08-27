@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
 interface IBoxProps {
+  width?: string
+  height?: string
+  backgroundColor?: string
+  color?: string
   marginTop?: number
   marginLeft?: number
   marginRight?: number
@@ -12,6 +16,13 @@ interface IBoxProps {
 }
 
 const Box = styled.div<IBoxProps>`
+  ${(props) => props.width && `width: ${props.width}`};
+  ${(props) => props.height && `height: ${props.height}`};
+
+  ${(props) =>
+    props.backgroundColor && `background-color: ${props.backgroundColor}`};
+  ${(props) => props.color && `color: ${props.color}`};
+
   ${(props) => props.marginTop && `margin-top: ${props.marginTop}rem`};
   ${(props) => props.marginLeft && `margin-left: ${props.marginLeft}rem`};
   ${(props) => props.marginRight && `margin-right: ${props.marginRight}rem`};
