@@ -23,7 +23,7 @@ const BackFace = styled.div`
   top: 5%;
   transform: translateX(-50%);
   font-size: 9.5rem;
-  font-weight: 700;
+  font-weight: 600;
   color: #eae8e7;
 `
 
@@ -83,7 +83,7 @@ const Card: React.FC<ICardProps> = ({
               </PokeImageWrapper>
             </Box>
             <Box>
-              <Typography variant="h3" fontWeight={700} fontSize={1.6}>
+              <Typography variant="h3" fontWeight={600} fontSize={1.6}>
                 {formatName(name)}
               </Typography>
             </Box>
