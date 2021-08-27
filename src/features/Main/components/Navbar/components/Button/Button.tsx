@@ -1,32 +1,34 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 const StyledButton = styled.div`
-  background-color: #f8f8f8;
-  font-size: 0.8rem;
-  text-align: center;
-  padding: 10px 0;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 500;
-  border-radius: 4px;
-  color: var(--color, #333);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
-  transition: 0.25s;
+  ${({ theme }) => css`
+    background-color: ${theme.palette.common.gray};
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: ${theme.borderRadius}px;
+    color: var(--color, ${theme.palette.common.black});
+    box-shadow: ${theme.boxShadow} 0px 1px 2px 0px;
+    transition: ${theme.transitionTiming}s;
 
-  &:hover {
-    color: #fff;
-    background-color: var(--color, #333);
-  }
+    &:hover {
+      color: ${theme.palette.common.white};
+      background-color: var(--color, ${theme.palette.common.black});
+    }
 
-  &.active {
-    color: #fff;
-    background-color: var(--color, #333);
-  }
+    &.active {
+      color: ${theme.palette.common.white};
+      background-color: var(--color, ${theme.palette.common.black})};
+    }
 
-  & + & {
-    margin-top: 10px;
-  }
+    & + & {
+      margin-top: 10px;
+    }
+  `}
 `
 
 interface IButtonProps {

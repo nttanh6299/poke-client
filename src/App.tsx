@@ -1,14 +1,18 @@
 import { Provider } from 'react-redux'
+import { ThemeProvider } from 'styled-components'
 import { store } from 'app/store'
 import { GlobalStyle } from 'styles/global'
+import { defaultTheme } from 'styles/theme'
 import Main from 'features/Main'
 
 function App() {
   return (
     <Provider store={store}>
-      <GlobalStyle />
+      <ThemeProvider theme={defaultTheme}>
+        <GlobalStyle />
 
-      <Main />
+        <Main />
+      </ThemeProvider>
     </Provider>
   )
 }

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import darken from 'polished/lib/color/darken'
 import Box from 'components/Box'
 import Flex from 'components/Flex'
 import Show from 'components/Show'
@@ -9,27 +10,33 @@ import { pokeTypes } from 'constants/global'
 import convertHgToPound from 'utils/convertHgToPound'
 
 const Wrapper = styled.div`
-  max-width: 450px;
-  margin: 0 auto;
-  position: relative;
-  background-color: #fff;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
-  border-radius: 16px;
+  ${({ theme }) => css`
+    max-width: 450px;
+    margin: 0 auto;
+    position: relative;
+    background-color: ${theme.palette.common.white};
+    box-shadow: ${theme.boxShadow} 0px 10px 50px;
+    border-radius: ${theme.borderRadius * 4}px;
+  `}
 `
 
 const BackFace = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 5%;
-  transform: translateX(-50%);
-  font-size: 9.5rem;
-  font-weight: 600;
-  color: #eae8e7;
+  ${({ theme }) => css`
+    position: absolute;
+    left: 50%;
+    top: 5%;
+    transform: translateX(-50%);
+    font-size: 9.5rem;
+    font-weight: 600;
+    color: ${darken(0.05, theme.palette.common.gray)};
+  `}
 `
 
 const Content = styled.div`
-  z-index: 1;
-  padding-bottom: 16px;
+  ${({ theme }) => css`
+    z-index: 1;
+    padding-bottom: ${theme.gutter}px;
+  `}
 `
 
 const PokeImageWrapper = styled.div`

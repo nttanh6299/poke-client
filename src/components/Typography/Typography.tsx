@@ -4,7 +4,7 @@ type Variant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 
 interface ITypographyProps {
   variant?: Variant
-  fontWeight?: 300 | 400 | 500 | 600 | 700
+  fontWeight?: 400 | 500 | 600
   fontSize?: number
   color?: string
   uppercase?: boolean

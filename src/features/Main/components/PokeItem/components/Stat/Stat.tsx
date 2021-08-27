@@ -1,19 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import Flex from 'components/Flex'
 import getBarColor from 'utils/getBarColor'
 
 const MAX_PROGRESS_VALUE = 140
 
 const Wrapper = styled.div`
-  & + & {
-    margin-top: 16px;
-  }
+  ${({ theme }) => css`
+    & + & {
+      margin-top: ${theme.gutter}px;
+    }
+  `}
 `
 
 const Label = styled.span`
-  flex: 0 0 140px;
-  font-weight: 600;
+  flex: 0 0 150px;
+  font-weight: 500;
   font-size: 1.15rem;
   color: #bbb;
   text-align: right;
@@ -29,21 +31,26 @@ const Value = styled.span`
 `
 
 const Progress = styled.div`
-  position: relative;
-  border-radius: 6px;
-  background-color: #eee;
-  overflow: hidden;
-  height: 15px;
+  ${({ theme }) => css`
+    position: relative;
+    border-radius: 6px;
+    background-color: ${theme.palette.common.gray};
+    overflow: hidden;
+    height: 15px;
+  `}
 `
 
 const Bar = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--value, 0);
-  height: 100%;
-  background-color: var(--bg, #ccc);
-  transition: width 0.25s, background-color 0.25s;
+  ${({ theme }) => css`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--value, 0);
+    height: 100%;
+    background-color: var(--bg, #ccc);
+    transition: width ${theme.transitionTiming}s,
+      background-color ${theme.transitionTiming}s;
+  `}
 `
 
 interface IStatProps {
