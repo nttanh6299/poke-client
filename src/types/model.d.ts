@@ -1,8 +1,39 @@
-export interface ICollection<T> {
-  count: number
-  next: string | null
-  previous: string | null
-  results: T[]
+export interface RawProp {
+  name: string
+  url: string
+}
+
+export interface Ability {
+  ability: RawProp
+}
+
+export interface Sprites {
+  other?: {
+    'official-artwork'?: {
+      front_default?: string
+    }
+  }
+}
+
+export interface Stat {
+  base_stat: number
+  stat: RawProp
+}
+
+export interface Type {
+  type: RawProp
+}
+
+export interface Pokemon {
+  id: number
+  name: string
+  weight: number
+  height: number
+  abilities: Ability[]
+  species: RawProp
+  sprites: Sprites
+  stats: Stat[]
+  types: Type[]
 }
 
 export as namespace Model

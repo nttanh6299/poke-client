@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from './components/Button'
-import { pokeTypes } from './constants'
+import { pokeTypes } from 'constants/global'
 
 const Wrapper = styled.div`
   height: 100vh;
