@@ -16,7 +16,7 @@ const Wrapper = styled.div`
     margin: 0 auto;
     position: relative;
     background-color: ${theme.palette.common.white};
-    box-shadow: ${theme.boxShadow} 0px 10px 50px;
+    box-shadow: ${theme.boxShadow} 0px 10px 30px;
     border-radius: ${theme.borderRadius * 4}px;
   `}
 `
@@ -44,6 +44,7 @@ const PokeImageWrapper = styled.div`
   background-color: transparent;
   width: 180px;
   height: 180px;
+  margin-top: 6px;
 `
 
 const PokeImage = styled.img`

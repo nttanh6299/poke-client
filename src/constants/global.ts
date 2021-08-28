@@ -1,4 +1,4 @@
-export const pokeTypes = [
+export const pokeTypes: Model.InitialType[] = [
   {
     name: 'normal',
     color: '#A8A878',

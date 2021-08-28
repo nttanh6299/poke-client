@@ -1,3 +1,8 @@
+export interface InitialType {
+  name: string
+  color: string
+}
+
 export interface RawProp {
   name: string
   url: string
@@ -34,6 +39,7 @@ export interface Pokemon {
   sprites: Sprites
   stats: Stat[]
   types: Type[]
+  url: string
 }
 
 export as namespace Model

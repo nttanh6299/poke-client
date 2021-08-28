@@ -1,23 +1,39 @@
-import React from 'react'
+import React, { useEffect, Suspense, lazy } from 'react'
+import { useSelector, useDispatch } from 'app/hook'
+import { changePokemonType, getPokemons } from 'features/Main/pokemonSlice'
 import Container from 'components/Container'
 import Navbar from './components/Navbar'
-import PokeList from './components/PokeList'
 import Flex from 'components/Flex'
 import Box from 'components/Box'
-import mock from './mock.json'
+
+const PokeList = lazy(() => import('./components/PokeList'))
 
 const Main: React.FC = () => {
-  const pokemonList: Model.Pokemon[] = [mock]
+  const pokemonType = useSelector((state) => state.pokemon.type)
+  const pokemons = useSelector(
+    (state) => state.pokemon.entities[pokemonType.name],
+  )
+  const dispatch = useDispatch()
 
-  console.log('List: ', pokemonList)
+  console.log('Pokemons', pokemons)
+
+  useEffect(() => {
+    console.log('Fetch pokemons: ', pokemonType)
+    dispatch(getPokemons('https://pokeapi.co/api/v2/pokemon?limit=4'))
+  }, [pokemonType, dispatch])
 
   return (
     <Container>
       <Flex>
-        <Navbar />
+        <Navbar
+          currentType={pokemonType}
+          onChangeType={(type) => dispatch(changePokemonType(type))}
+        />
         <Flex flexItem>
           <Box marginTop={2} marginRight={1}>
-            <PokeList pokemonList={pokemonList} />
+            <Suspense fallback={<div>Loading....</div>}>
+              <PokeList pokemonList={pokemons} />
+            </Suspense>
           </Box>
         </Flex>
       </Flex>
