@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from 'styles/theme'
 import { store } from 'app/store'
 import reducer, { setLimit, initialState } from '../reducer'
-import Main from 'features/Main'
+import Main from 'features/Pokemon'
 
 afterEach(cleanup)
 

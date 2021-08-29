@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import Button from 'features/Main/components/Navbar/components/Button'
+import Button from 'features/Pokemon/components/Navbar/components/Button'
 
 export default {
   title: 'Navbar/Button',

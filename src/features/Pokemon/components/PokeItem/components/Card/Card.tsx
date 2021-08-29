@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { useHistory } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import darken from 'polished/lib/color/darken'
 import Box from 'components/Box'
@@ -34,6 +35,7 @@ const BackFace = styled.div`
 const Content = styled.div`
   ${({ theme }) => css`
     z-index: 1;
+    cursor: pointer;
     padding-bottom: ${theme.gutter}px;
   `}
 `
@@ -72,13 +74,19 @@ const Card: React.FC<ICardProps> = ({
   types,
   abilities,
 }) => {
+  const history = useHistory()
+
+  const changeRoute = () => {
+    history.push('/pokemon/' + name)
+  }
+
   return (
     <Box>
       <Wrapper>
         <BackFace>
           <Typography variant="h2">#{id}</Typography>
         </BackFace>
-        <Content>
+        <Content onClick={changeRoute}>
           <Flex
             flexDirection="column"
             justifyContent="center"

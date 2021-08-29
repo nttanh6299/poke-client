@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import Card from 'features/Main/components/PokeItem/components/Card'
+import Card from 'features/Pokemon/components/PokeItem/components/Card'
 
 export default {
   title: 'PokeItem/Card',

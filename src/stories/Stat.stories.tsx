@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import Stat from 'features/Main/components/PokeItem/components/Stat'
+import Stat from 'features/Pokemon/components/PokeItem/components/Stat'
 
 export default {
   title: 'PokeItem/Stat',

@@ -7,7 +7,10 @@ import { GlobalStyle } from 'styles/global'
 import { defaultTheme } from 'styles/theme'
 
 import Navbar from 'components/Navbar'
-import Main from 'features/Main'
+
+import Home from 'features/Home'
+import Pokemon from 'features/Pokemon'
+import PokemonDetail from 'features/PokemonDetail'
 import Counter from 'features/Counter'
 import NotFound from 'features/NotFound'
 
@@ -28,7 +31,9 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Main} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/pokemon" component={Pokemon} />
+            <Route exact path="/pokemon/:pokemonId" component={PokemonDetail} />
             <Route exact path="/counter" component={Counter} />
             <Route path="*" component={NotFound} />
           </Switch>

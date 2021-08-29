@@ -1,14 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const Wrapper = styled.div`
   padding: 10px;
 `
 
-const NavLink = styled.div`
+const NavLinkWrapper = styled.div`
   & + & {
     margin-top: 4px;
+  }
+
+  &.active {
+    a {
+      color: red;
+    }
   }
 
   a {
@@ -21,15 +27,34 @@ const NavLink = styled.div`
   }
 `
 
+const links = [
+  {
+    label: 'Home',
+    value: '/',
+  },
+  {
+    label: 'Pokemon',
+    value: '/pokemon',
+  },
+  {
+    label: 'Counter',
+    value: '/counter',
+  },
+]
+
 const Navbar: React.FC = () => {
+  const location = useLocation()
+
   return (
     <Wrapper>
-      <NavLink>
-        <Link to="/">Pokemon</Link>
-      </NavLink>
-      <NavLink>
-        <Link to="/counter">Counter</Link>
-      </NavLink>
+      {links.map(({ label, value }) => (
+        <NavLinkWrapper
+          key={value}
+          className={location.pathname === value ? 'active' : ''}
+        >
+          <Link to={value}>{label}</Link>
+        </NavLinkWrapper>
+      ))}
     </Wrapper>
   )
 }
