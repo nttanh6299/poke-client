@@ -1,4 +1,5 @@
 import React, { useEffect, Suspense, lazy } from 'react'
+import { Helmet } from 'react-helmet'
 import { useSelector, useDispatch } from 'app/hook'
 import { getPokemons } from 'features/Main/slice/thunk'
 import { setLimit } from 'features/Main/slice/reducer'
@@ -33,6 +34,10 @@ const Main: React.FC = () => {
 
   return (
     <Container>
+      <Helmet>
+        <title>Pokemon</title>
+      </Helmet>
+
       <StickyWrapper>
         <Box marginTop={1} marginBottom={1}>
           <Button

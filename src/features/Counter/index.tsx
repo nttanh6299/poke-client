@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'app/hook'
+import { Helmet } from 'react-helmet'
 import {
   decrement,
   increment,
@@ -13,6 +14,10 @@ function Counter() {
 
   return (
     <div>
+      <Helmet>
+        <title>Counter</title>
+      </Helmet>
+
       <button
         aria-label="Increment value"
         onClick={() => dispatch(increment())}

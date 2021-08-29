@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
 import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { store } from 'app/store'
@@ -14,6 +15,14 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={defaultTheme}>
+        <Helmet>
+          <meta
+            name="description"
+            content="React - RTK - Typescript - Storybook - Testing - PokeAPI"
+          />
+          <meta name="theme-color" content="#fff" />
+        </Helmet>
+
         <GlobalStyle />
 
         <BrowserRouter>
