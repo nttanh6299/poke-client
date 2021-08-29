@@ -34,6 +34,8 @@ const StyledButton = styled.div`
 interface IButtonProps {
   color: string
   label: string
+  disabled?: boolean
+  loading?: boolean
   isActive?: boolean
   onClick: () => void
 }
@@ -42,19 +44,28 @@ const Button: React.FC<IButtonProps> = ({
   label,
   color,
   isActive,
+  disabled,
+  loading,
+  onClick,
   ...props
 }) => {
   const style = { '--color': color } as React.CSSProperties
   const className = isActive ? 'active' : ''
+
+  const handleClick = () => {
+    if (loading || disabled) return
+    onClick()
+  }
 
   return (
     <StyledButton
       data-testid="nav-button"
       className={className}
       style={style}
+      onClick={handleClick}
       {...props}
     >
-      {label}
+      {loading ? 'LOADING' : label}
     </StyledButton>
   )
 }

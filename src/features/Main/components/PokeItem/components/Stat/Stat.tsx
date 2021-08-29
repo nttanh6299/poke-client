@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import Flex from 'components/Flex'
 import getBarColor from 'utils/getBarColor'
 
-const MAX_PROGRESS_VALUE = 140
+const MAX_PROGRESS_VALUE = 300
 
 const Wrapper = styled.div`
   ${({ theme }) => css`

@@ -13,7 +13,6 @@ import Dot from 'components/Dot'
 const Wrapper = styled.div`
   ${({ theme }) => css`
     max-width: 450px;
-    margin: 0 auto;
     position: relative;
     background-color: ${theme.palette.common.white};
     box-shadow: ${theme.boxShadow} 0px 10px 30px;
@@ -24,10 +23,9 @@ const Wrapper = styled.div`
 const BackFace = styled.div`
   ${({ theme }) => css`
     position: absolute;
-    left: 50%;
+    right: 5%;
     top: 5%;
-    transform: translateX(-50%);
-    font-size: 9.5rem;
+    font-size: 2rem;
     font-weight: 600;
     color: ${darken(0.05, theme.palette.common.gray)};
   `}
@@ -88,7 +86,13 @@ const Card: React.FC<ICardProps> = ({
           >
             <Box>
               <PokeImageWrapper>
-                <PokeImage alt={name} src={avatar} />
+                <PokeImage
+                  alt={name}
+                  src={
+                    avatar ||
+                    'https://www.freeiconspng.com/uploads/pokeball-transparent-png-2.png'
+                  }
+                />
               </PokeImageWrapper>
             </Box>
             <Box>
@@ -101,7 +105,7 @@ const Card: React.FC<ICardProps> = ({
                 {formatName(name)}
               </Typography>
             </Box>
-            <Box marginTop={0.25} marginBottom={0.8}>
+            <Box marginTop={0.5} marginBottom={0.8}>
               <Flex alignItems="center">
                 <Typography color="#87847E" fontSize={0.9}>
                   W: {convertHgToPound(weight)}lbs
