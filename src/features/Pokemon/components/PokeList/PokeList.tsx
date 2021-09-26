@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { useHistory } from 'react-router-dom'
 import Flex from 'components/Flex'
 import Box from 'components/Box'
 import Stats from '../PokeItem/components/Stats'
@@ -15,6 +16,12 @@ const PokeList: React.FC<IPokeListProps> = ({
   pokemonList,
   loading = false,
 }) => {
+  const history = useHistory()
+
+  const changeRoute = (name: string) => () => {
+    history.push('/pokemon/' + name)
+  }
+
   return (
     <Box>
       <Show when={!loading}>
@@ -36,6 +43,7 @@ const PokeList: React.FC<IPokeListProps> = ({
                     }
                     types={types.map(({ type }) => type.name)}
                     abilities={abilities.map(({ ability }) => ability.name)}
+                    onClick={changeRoute(name)}
                   />
                 </Flex>
                 <Flex flexItem>

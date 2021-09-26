@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react'
-import { useHistory } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import darken from 'polished/lib/color/darken'
 import Box from 'components/Box'
@@ -63,6 +62,7 @@ interface ICardProps {
   avatar: string
   types: string[]
   abilities: string[]
+  onClick: () => void
 }
 
 const Card: React.FC<ICardProps> = ({
@@ -73,20 +73,15 @@ const Card: React.FC<ICardProps> = ({
   avatar,
   types,
   abilities,
+  onClick,
 }) => {
-  const history = useHistory()
-
-  const changeRoute = () => {
-    history.push('/pokemon/' + name)
-  }
-
   return (
     <Box>
       <Wrapper>
         <BackFace>
           <Typography variant="h2">#{id}</Typography>
         </BackFace>
-        <Content onClick={changeRoute}>
+        <Content onClick={onClick}>
           <Flex
             flexDirection="column"
             justifyContent="center"
