@@ -1,0 +1,35 @@
+name: Test
+on:
+  push:
+    branches: [main]
+jobs:
+  test:
+    name: Test push
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [14]
+        os: [ubuntu-latest]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Setup node ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --no-progress --non-interactive
+
+      - name: Run test
+        run: yarn test --coverage
