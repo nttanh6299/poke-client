@@ -1,3 +1,4 @@
+import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import { Provider } from 'react-redux'
@@ -14,7 +15,7 @@ import PokemonDetail from 'features/PokemonDetail'
 import Counter from 'features/Counter'
 import NotFound from 'features/NotFound'
 
-function App() {
+const App: React.FC = () => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={defaultTheme}>

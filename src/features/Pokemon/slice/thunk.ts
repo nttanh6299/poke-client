@@ -8,7 +8,7 @@ export const getPokemonByType = createAsyncThunk<
   {
     state: RootState
   }
->('pokemon/getPokemonByType', async (type, thunkApi) => {
+>('pokemon/getPokemonByType', async (type) => {
   const response = await client.get<Extend.Type>(`/type/${type}`)
   const pokemons = response.pokemon.map((poke) => poke.pokemon)
   return pokemons

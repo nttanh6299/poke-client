@@ -28,8 +28,8 @@ async function client<Res>(
       return data
     }
     throw new Error(response.statusText)
-  } catch (err) {
-    return Promise.reject(err.message ? err.message : data)
+  } catch (error: any) {
+    return Promise.reject(error.message ? error.message : data)
   }
 }
 

@@ -2,20 +2,21 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2020: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'prettier',
   ],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
+      modules: true,
     },
-    ecmaVersion: 12,
-    sourceType: 'module',
   },
+  parser: '@typescript-eslint/parser',
   plugins: ['react', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
@@ -23,6 +24,12 @@ module.exports = {
     'linebreak-style': ['error', 'unix'],
     'arrow-body-style': 'off',
     'prefer-arrow-callback': 'off',
+    '@typescript-eslint/no-namespace': [2, { allowDeclarations: true }],
+    '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-empty-interface': 'warn',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'react/react-in-jsx-scope': 'off',
   },
-  "ignorePatterns": ['*.test.ts', '*.test.tsx'],
+  ignorePatterns: ['*.test.ts', '*.test.tsx'],
 }
