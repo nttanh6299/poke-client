@@ -1,23 +1,25 @@
 name: Build and deploy storybook
 on:
   push:
-    paths: ['src/stories/**']
+    branches: [main]
 jobs:
   build-and-deploy:
-    runs-on: ${{ maxtrix.os }}
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.1
 
       - name: Build
         run: |
+          yarn install
           yarn build-storybook
 
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@2.0.3
-        with:
-          branch: gh-pages
-          folder: storybook-static
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: storybook-static
