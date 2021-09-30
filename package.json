@@ -2,6 +2,7 @@
   "name": "poke-client",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://nttanh6299.github.io/poke-client",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^5.11.4",
@@ -29,11 +30,11 @@
     "start": "SKIP_PREFLIGHT_CHECK=true react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "SKIP_PREFLIGHT_CHECK=true react-scripts test --watchAll=false",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint .",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "browserslist": {
     "production": [
@@ -60,6 +61,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.0",
+    "gh-pages": "3.2.3",
     "husky": "^7.0.1",
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2"
