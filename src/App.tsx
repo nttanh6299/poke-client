@@ -29,7 +29,7 @@ const App: React.FC = () => {
 
         <GlobalStyle />
 
-        <BrowserRouter>
+        <BrowserRouter basename="/poke-client">
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
