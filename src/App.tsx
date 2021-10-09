@@ -24,12 +24,12 @@ const App: React.FC = () => {
             name="description"
             content="React - RTK - Typescript - Storybook - Testing - PokeAPI"
           />
-          <meta name="theme-color" content="#fff" />
+          <meta name="theme-color" content="#f00" />
         </Helmet>
 
         <GlobalStyle />
 
-        <BrowserRouter basename="/poke-client">
+        <BrowserRouter basename="/">
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
