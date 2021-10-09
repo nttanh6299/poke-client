@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - main
+    paths: ['stories/**']
 jobs:
   build-and-deploy:
     runs-on: ${{ matrix.os }}
