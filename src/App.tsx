@@ -8,12 +8,14 @@ import { GlobalStyle } from 'styles/global'
 import { defaultTheme } from 'styles/theme'
 
 import Navbar from 'components/Navbar'
+import ErrorBoundary from 'components/ErrorBoundary'
 
 import Home from 'features/Home'
 import Pokemon from 'features/Pokemon'
 import PokemonDetail from 'features/PokemonDetail'
 import Counter from 'features/Counter'
 import NotFound from 'features/NotFound'
+import ErrorPage from 'features/Error'
 
 const App: React.FC = () => {
   return (
@@ -36,6 +38,11 @@ const App: React.FC = () => {
             <Route exact path="/pokemon" component={Pokemon} />
             <Route exact path="/pokemon/:pokemonId" component={PokemonDetail} />
             <Route exact path="/counter" component={Counter} />
+
+            <ErrorBoundary>
+              <Route exact path="/error" component={ErrorPage} />
+            </ErrorBoundary>
+
             <Route path="*" component={NotFound} />
           </Switch>
         </BrowserRouter>

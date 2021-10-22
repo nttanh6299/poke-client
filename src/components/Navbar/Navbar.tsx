@@ -40,6 +40,10 @@ const links = [
     label: 'Counter',
     value: '/counter',
   },
+  {
+    label: 'Error',
+    value: '/error',
+  },
 ]
 
 const Navbar: React.FC = () => {
